@@ -20,9 +20,11 @@ render(input = "report.Rmd")
 
 # Render slides -----------------------------------------------------
 
-render(input = "slides.Rmd")
+render(input = "slides.Rmd",
+       output_file = "index.html")
 
-chrome_print("slides.html")
+render(input = "slides.Rmd",
+       output_file = "slides.html")
 
 
 # Email -------------------------------------------------------------------
@@ -42,8 +44,9 @@ send_report <- function(email) {
     gm_to(email) %>%
     gm_from("David Keyes <david@rfortherestofus.com>") %>%
     gm_subject("Why R is Magic Report") %>%
-    gm_text_body("Please find the report attached.") %>%
+    gm_text_body("Please find the report attached. You can find the slides from today's talk at \n\nCheers,\n\nDavid\n\nLearn more about R for the Rest of Us at https://rfortherestofus.com") %>%
     gm_attach_file("report.html") %>%
+    gm_attach_file("slides.html") %>%
     gm_send_message()
 
 }

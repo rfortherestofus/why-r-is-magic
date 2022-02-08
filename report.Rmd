@@ -37,9 +37,7 @@ options(gargle_oauth_email = "david@rfortherestofus.com")
 
 theme_set(theme_ipsum(base_family = "Inter",
                       axis_title_family = "Inter",
-                      grid_col = "transparent")) +
-  theme(legend.position = "none", 
-        axis.text.x = element_blank())
+                      grid_col = "transparent"))
 ```
 
 
@@ -88,8 +86,7 @@ The education levels of respondents are below.
 ```{r fig.height=4}
 survey_responses_today %>% 
   count(what_is_the_highest_level_of_education_you_have_completed) %>% 
-  mutate(what_is_the_highest_level_of_education_you_have_completed = factor(what_is_the_highest_level_of_education_you_have_completed, 
-                                                                            levels = c("High school", "Associate's degree", "Bachelor's degree", "Master's degree", "Doctoral degree", "Other"))) %>% 
+  mutate(what_is_the_highest_level_of_education_you_have_completed = factor(what_is_the_highest_level_of_education_you_have_completed, levels = c("High school", "Associate's degree", "Bachelor's degree", "Master's degree", "Doctoral degree", "Other"))) %>% 
   mutate(what_is_the_highest_level_of_education_you_have_completed = fct_rev(what_is_the_highest_level_of_education_you_have_completed)) %>% 
   drop_na(what_is_the_highest_level_of_education_you_have_completed) %>% 
   ggplot(aes(what_is_the_highest_level_of_education_you_have_completed, n)) +
@@ -101,7 +98,9 @@ survey_responses_today %>%
   labs(title = "Education Levels of Respondents",
        x = NULL,
        y = NULL) +
-  scale_y_continuous(breaks = pretty_breaks()) 
+  scale_y_continuous(breaks = pretty_breaks()) +
+  theme(legend.position = "none", 
+        axis.text.x = element_blank())
 ```
 
 
@@ -158,9 +157,11 @@ survey_responses_today %>%
   coord_flip() +
   scale_y_continuous(limits = c(0, 5),
                      breaks = seq(0, 5, by = 1)) +
-  labs(title = "Familiarity with R by Education Level",
+  labs(title = "Familiarity with R\nby Education Level",
        x = NULL,
-       y = NULL) 
+       y = NULL)  +
+  theme(legend.position = "none", 
+        axis.text.x = element_blank())
 ```
 
 
@@ -184,19 +185,19 @@ survey_responses_today %>%
   mutate(mean_interest = round_half_up(mean_interest, 1)) %>% 
   mutate(what_is_the_highest_level_of_education_you_have_completed = factor(what_is_the_highest_level_of_education_you_have_completed,  levels = c("High school", "Associate's degree", "Bachelor's degree", "Master's degree", "Doctoral degree", "Other"))) %>% 
   drop_na(what_is_the_highest_level_of_education_you_have_completed) %>% 
-  ggplot(aes(what_is_the_highest_level_of_education_you_have_completed, mean_interest,
-             fill = what_is_the_highest_level_of_education_you_have_completed)) +
-  geom_col() +
-  geom_text(aes(label = number(mean_interest, .1)),
+ ggplot(aes(what_is_the_highest_level_of_education_you_have_completed, mean_interest)) +
+  geom_col(fill = "#6CABDD") +
+  geom_text(aes(label = number(mean_familiarity, .1)),
             hjust = 1.5,
             color = "white") +
   coord_flip() +
   scale_y_continuous(limits = c(0, 5),
                      breaks = seq(0, 5, by = 1)) +
-  scale_fill_manual(values = c("#6CABDD", "#FF7400", "#FFC659", "red")) +
-  labs(title = "Interest in Learning R by Education Level",
+  labs(title = "Interest in Learning R\nby Education Level",
        x = NULL,
-       y = NULL) 
+       y = NULL)  +
+  theme(legend.position = "none", 
+        axis.text.x = element_blank())
 ```
 
 

@@ -187,6 +187,8 @@ class: center, middle
 
 ---
 
+class: center, middle
+
 # Use Templates to Make Reports Follow Your Branding
 
 ---
@@ -268,11 +270,12 @@ class: inverse, center, middle
 
 class: center, middle
 
-.xl[
-At its core, R is about improving your workflow. 
-]
+# At Its Core, R is About Improving Your Workflow 
 
---
+
+---
+
+class: center, middle
 
 .xl[
 No matter if you’re doing complex statistical analysis or you’re producing tables of descriptive stats, R can help you produce and share your results more efficiently than any other tool. 
