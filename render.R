@@ -43,10 +43,9 @@ send_report <- function(email) {
   gm_mime() %>%
     gm_to(email) %>%
     gm_from("David Keyes <david@rfortherestofus.com>") %>%
-    gm_subject("Why R is Magic Report") %>%
-    gm_text_body("Please find the report attached. You can find the slides from today's talk at \n\nCheers,\n\nDavid\n\nLearn more about R for the Rest of Us at https://rfortherestofus.com") %>%
+    gm_subject("Why R is Magic") %>%
+    gm_text_body("Please find the report attached. You can find the slides from today's talk at https://rfor.us/magicslides\n\nCheers,\n\nDavid\n\n* * *\n\nLearn more about R for the Rest of Us at https://rfortherestofus.com") %>%
     gm_attach_file("report.html") %>%
-    gm_attach_file("slides.html") %>%
     gm_send_message()
 
 }

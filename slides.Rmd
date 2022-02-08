@@ -34,6 +34,15 @@ Please take the survey at https://rfor.us/magicsurvey
 
 ---
 
+class: center, middle
+
+.xl[
+You can find these slides at https://rfor.us/magicslides
+]
+
+
+---
+
 background-image:url("images/dk-headshot-color-2.jpg")
 
 
