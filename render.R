@@ -26,7 +26,6 @@ render(input = "slides.Rmd",
 render(input = "slides.Rmd",
        output_file = "slides.html")
 
-
 # Email -------------------------------------------------------------------
 
 emails <- read_sheet("https://docs.google.com/spreadsheets/d/1TcMCV2BuiBI_svmpFIAk0LTqBXNbXsrxZakYG8dG9dY/edit#gid=1229185329",
