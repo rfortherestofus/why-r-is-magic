@@ -32,6 +32,7 @@ emails <- read_sheet("https://docs.google.com/spreadsheets/d/1TcMCV2BuiBI_svmpFI
                      sheet = "Responses") %>%
   # Make the variable names easy to work with
   clean_names() %>%
+  drop_na(please_enter_your_email_if_you_want_to_receive_a_copy_of_the_survey_report) %>%
   pull(please_enter_your_email_if_you_want_to_receive_a_copy_of_the_survey_report) %>%
   unique()
 
@@ -51,6 +52,7 @@ send_report <- function(email) {
 
 emails %>%
   walk(send_report)
+
 
 
 
